@@ -35,11 +35,11 @@ const STRENGTH_ICONS = {
   ),
 };
 
-const TAGLINE_SUB = 'Where engineering precision meets the zero-emission revolution.';
+const TAGLINE_SUB = 'Meerut mein bana. India ke liye. Asli roads ke liye.';
 
 function EVBoltRing() {
   return (
-    <div style={{ position:'relative', width:300, height:300, flexShrink:0 }}>
+    <div style={{ position:'relative', width:'clamp(220px,32vw,300px)', height:'clamp(220px,32vw,300px)', flexShrink:0 }}>
       <motion.div animate={{ scale:[1,1.07,1], opacity:[0.35,0.65,0.35] }}
         transition={{ duration:3.5, repeat:Infinity, ease:'easeInOut' }}
         style={{ position:'absolute', inset:-22, borderRadius:'50%', border:'1.5px solid rgba(20,128,64,0.22)' }} />
@@ -132,8 +132,8 @@ function Hero() {
         borderRadius:'50%', pointerEvents:'none',
         background:'radial-gradient(circle,rgba(34,192,96,0.06) 0%,transparent 65%)' }} />
       <div className="container hero-grid" style={{ position:'relative', zIndex:1,
-        display:'grid', gridTemplateColumns:'1fr 1fr', gap:72,
-        alignItems:'center', padding:'80px 40px 100px' }}>
+        display:'grid', gridTemplateColumns:'1fr 1fr', gap:'clamp(32px,5vw,72px)',
+        alignItems:'center', padding:'clamp(48px,8vw,100px) clamp(16px,3vw,40px)' }}>
         <div>
           <motion.div initial={{ opacity:0, y:16 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.1, duration:0.6 }}>
             <div style={{ display:'inline-flex', alignItems:'center', gap:9,
@@ -169,8 +169,8 @@ function Hero() {
           </motion.p>
           <motion.div initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.5 }}
             style={{ display:'flex', gap:14, flexWrap:'wrap', marginBottom:40 }}>
-            <Link to="/vehicles" className="btn btn-primary btn-lg">
-              Explore Vehicles
+            <Link to="/products" className="btn btn-primary btn-lg">
+              Explore Products
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
             <Link to="/contact" className="btn btn-outline btn-lg">Request Quote</Link>
@@ -200,19 +200,19 @@ function Hero() {
                 <motion.div key={s.label} initial={{ opacity:0, scale:0.8 }} animate={{ opacity:1, scale:1 }}
                   transition={{ delay:0.7+i*0.12, type:'spring', stiffness:200 }}
                   style={{ position:'absolute', ...pos, background:'var(--white)',
-                    border:'1px solid rgba(20,128,64,0.15)', borderRadius:14, padding:'13px 16px',
-                    textAlign:'center', minWidth:88, boxShadow:'0 8px 28px rgba(0,0,0,0.08)',
+                    border:'1px solid rgba(20,128,64,0.15)', borderRadius:14, padding:'10px 13px',
+                    textAlign:'center', minWidth:'clamp(72px,9vw,88px)', boxShadow:'0 8px 28px rgba(0,0,0,0.08)',
                     transition:'all 0.3s var(--ease)', cursor:'default' }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor='var(--primary-border)'; e.currentTarget.style.background='var(--g-50)'; e.currentTarget.style.boxShadow='0 12px 36px rgba(20,128,64,0.15)'; e.currentTarget.style.transform='translateY(-4px)'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(20,128,64,0.15)'; e.currentTarget.style.background='var(--white)'; e.currentTarget.style.boxShadow='0 8px 28px rgba(0,0,0,0.08)'; e.currentTarget.style.transform='none'; }}>
-                  <div style={{ fontFamily:'var(--font-display)', fontSize:24, fontWeight:800,
+                  <div style={{ fontFamily:'var(--font-display)', fontSize:'clamp(16px,2.2vw,24px)', fontWeight:800,
                     letterSpacing:'-0.04em', lineHeight:1, marginBottom:4,
                     background:'linear-gradient(135deg,var(--g-700),var(--g-400))',
                     WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
                     {s.value}{s.suffix}
                   </div>
-                  <div style={{ fontFamily:'var(--font-display)', fontSize:9.5, fontWeight:700,
-                    letterSpacing:'0.14em', textTransform:'uppercase', color:'var(--text-muted)' }}>
+                  <div style={{ fontFamily:'var(--font-display)', fontSize:'clamp(7px,0.9vw,9.5px)', fontWeight:700,
+                    letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--text-muted)' }}>
                     {s.label}
                   </div>
                 </motion.div>
@@ -345,8 +345,8 @@ function FeaturedVehicles() {
               Click any card to explore 360° view, color variants and full specifications.
             </p>
           </div>
-          <Link to="/vehicles" className="btn btn-outline">
-            View All Vehicles
+          <Link to="/products" className="btn btn-outline">
+            View All Products
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </Link>
         </div>

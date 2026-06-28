@@ -7,6 +7,7 @@ import Footer     from './components/shared/Footer';
 import Home       from './pages/Home';
 import About      from './pages/About';
 import Vehicles   from './pages/Vehicles';
+import Products   from './pages/Products';
 import VehicleDetail from './pages/VehicleDetail';
 import Technology from './pages/Technology';
 import Dealership from './pages/Dealership';
@@ -96,6 +97,8 @@ export default function App() {
         <Route path="/about"          element={<About />} />
         <Route path="/vehicles"       element={<Vehicles />} />
         <Route path="/vehicles/:slug" element={<VehicleDetail />} />
+        <Route path="/products"       element={<Products />} />
+        <Route path="/products/:slug" element={<VehicleDetail />} />
         <Route path="/technology"     element={<Technology />} />
         <Route path="/dealership"     element={<Dealership />} />
         <Route path="/contact"        element={<Contact />} />

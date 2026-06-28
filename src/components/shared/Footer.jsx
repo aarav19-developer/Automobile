@@ -60,12 +60,13 @@ const SOCIALS = [
 ];
 
 const FOOTER_NAV = {
-  Vehicles: [
-    { label:'E-Rickshaw L5',   to:'/vehicles' },
-    { label:'Autofacia Model', to:'/vehicles' },
-    { label:'EV Loader HD',    to:'/vehicles' },
-    { label:'EV Scooty 4HL',   to:'/vehicles' },
-    { label:'LFP Battery',     to:'/vehicles' },
+  Products: [
+    { label:'Electric Scooty',     to:'/products' },
+    { label:'Electric Rickshaw',   to:'/products' },
+    { label:'Electric Loader',     to:'/products' },
+    { label:'Garbage Loader EV',   to:'/products' },
+    { label:'LFP Battery Mfg',     to:'/products' },
+    { label:'Electric Auto',       to:'/products' },
   ],
   Company: [
     { label:'About Us',    to:'/about' },
@@ -90,8 +91,7 @@ export default function Footer() {
             <p style={{ fontFamily:'var(--font-body)', fontSize:13.5,
               color:'rgba(255,255,255,0.38)', lineHeight:1.75,
               margin:'18px 0 18px', fontWeight:400, maxWidth:260 }}>
-              Engineering safe, smart and reliable electric mobility for India —
-              backed by Dewan Group legacy.
+              Meerut mein bana. India ke commercial operators ke liye. Dewan Group ki legacy ke saath.
             </p>
             <p style={{ fontFamily:'var(--font-body)', fontSize:12,
               color:'rgba(255,255,255,0.18)', lineHeight:1.65,
@@ -211,7 +211,7 @@ export default function Footer() {
           </p>
           <p style={{ fontFamily:'var(--font-body)', fontSize:12,
             color:'rgba(255,255,255,0.12)' }}>
-            Engineering the Future of Electric Mobility
+            Meerut se. India ke liye. Electric.
           </p>
         </div>
       </div>

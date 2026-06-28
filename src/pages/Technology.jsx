@@ -14,14 +14,17 @@ const SPECS = [
 ];
 
 const COMPARE = [
-  { metric:'Thermal Safety',  lfp:'Excellent', nmc:'Moderate',   la:'Good',     winner:true },
-  { metric:'Cycle Life',      lfp:'2500+',     nmc:'800–1200',   la:'500–800',  winner:true },
-  { metric:'India Climate',   lfp:'Excellent', nmc:'Moderate',   la:'Moderate', winner:true },
-  { metric:'Smart BMS',       lfp:'Standard',  nmc:'Optional',   la:'No',       winner:true },
-  { metric:'Running Cost',    lfp:'Lowest',    nmc:'Medium',     la:'Low',      winner:true },
-  { metric:'Fire Safety',     lfp:'Highest',   nmc:'Medium',     la:'Medium',   winner:true },
-  { metric:'App Monitoring',  lfp:'Yes',       nmc:'Rare',       la:'No',       winner:true },
-  { metric:'5-Year Ownership',lfp:'Best ROI',  nmc:'High Cost',  la:'Replacements', winner:true },
+  { metric:'Thermal Safety',    lfp:'Excellent',        nmc:'Moderate',      la:'Poor',          winner:true },
+  { metric:'Blast Proof',       lfp:'Yes ✓',            nmc:'No',            la:'No',            winner:true },
+  { metric:'Fire Proof',        lfp:'Yes ✓',            nmc:'No',            la:'No',            winner:true },
+  { metric:'Battery Life',      lfp:'7–8 Years',        nmc:'2–3 Years',     la:'1–1.5 Years',   winner:true },
+  { metric:'Cycle Life',        lfp:'2500+',            nmc:'800–1000',      la:'300–500',       winner:true },
+  { metric:'India Climate',     lfp:'Excellent',        nmc:'Moderate',      la:'Poor',          winner:true },
+  { metric:'Smart BMS',         lfp:'Standard',         nmc:'Optional',      la:'No',            winner:true },
+  { metric:'Running Cost',      lfp:'Lowest',           nmc:'High',          la:'Medium',        winner:true },
+  { metric:'Fire Safety',       lfp:'Highest',          nmc:'Medium',        la:'Medium',        winner:true },
+  { metric:'App Monitoring',    lfp:'Yes',              nmc:'Rare',          la:'No',            winner:true },
+  { metric:'5-Year Ownership',  lfp:'Best ROI',         nmc:'Very High Cost',la:'Replacements',  winner:true },
 ];
 
 function ProgressBar({ value, delay }) {
@@ -54,11 +57,11 @@ export default function Technology() {
           background:'radial-gradient(circle,rgba(20,128,64,0.08) 0%,transparent 65%)' }} />
         <div className="container" style={{ position:'relative', zIndex:1 }}>
           <div className="eyebrow">Battery Technology</div>
-          <h1 className="section-title">Smart LFP Battery — <span className="text-green">Safety Engineered</span></h1>
+          <h1 className="section-title">LFP Battery — <span className="text-green">Blast Proof. Fire Proof.</span></h1>
           <p style={{ fontFamily:'var(--font-body)', fontSize:15.5, color:'var(--text-muted)',
             maxWidth:520, marginTop:12, lineHeight:1.75 }}>
-            Not just a power source — a complete smart energy system. Bluetooth monitoring,
-            advanced BMS, India's most rigorous safety testing. LFP means no fire, no explosion, no compromise.
+            Sirf ek power source nahi — ek complete smart energy system. Bluetooth monitoring,
+            Smart BMS protection, aur India ka sabse safe LFP battery. Aag nahi, blast nahi, compromise nahi.
           </p>
         </div>
       </div>
@@ -68,10 +71,10 @@ export default function Technology() {
         <div className="container">
           <div ref={titleRef} className="reveal" style={{ marginBottom:52 }}>
             <div className="eyebrow">Why LFP</div>
-            <h2 className="section-title">6 Reasons LFP is <span className="text-green">The Only Choice</span></h2>
+            <h2 className="section-title">LFP Kyun? <span className="text-green">6 Solid Reasons</span></h2>
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)', marginTop:12, maxWidth:500 }}>
-              LFP doesn't catch fire under abuse. It doesn't explode. It operates in any Indian climate.
-              That's why every VNR Green vehicle runs on LFP — not because it's trendy, because it's safe.
+              LFP aag nahi pakadti. Blast nahi hoti. Har Indian climate mein kaam karti hai.
+              Isliye VNR Green ke sabhi vehicles mein LFP hai — trend ke liye nahi, safety ke liye.
             </p>
           </div>
           <div ref={featRef} style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="tech-feat-grid">
@@ -162,7 +165,8 @@ export default function Technology() {
               Not all batteries are equal. Here's why operators who switch to VNR Green never go back.
             </p>
           </div>
-          <div style={{ background:'var(--white)', border:'1px solid rgba(20,128,64,0.15)',
+          <div className="compare-table-wrap">
+          <div className="compare-table-inner" style={{ background:'var(--white)', border:'1px solid rgba(20,128,64,0.15)',
             borderRadius:20, overflow:'hidden', boxShadow:'0 8px 32px rgba(20,128,64,0.08)' }}>
             {/* Header */}
             <div style={{ display:'grid', gridTemplateColumns:'2fr 1.4fr 1.4fr 1.4fr',
@@ -185,15 +189,16 @@ export default function Technology() {
                 onMouseLeave={e => e.currentTarget.style.background=i%2===0?'transparent':'rgba(20,128,64,0.015)'}>
                 <span style={{ fontFamily:'var(--font-body)', fontSize:13.5, color:'var(--text-muted)' }}>{row.metric}</span>
                 <span style={{ fontFamily:'var(--font-display)', fontSize:13, fontWeight:700,
-                  color:'var(--g-700)' }}>{row.lfp}</span>
-                <span style={{ fontFamily:'var(--font-body)', fontSize:13, color:'var(--text-muted)' }}>{row.nmc}</span>
-                <span style={{ fontFamily:'var(--font-body)', fontSize:13, color:'var(--text-muted)' }}>{row.la}</span>
+                  color: row.metric === 'Blast Proof' || row.metric === 'Fire Proof' ? 'var(--g-500)' : 'var(--g-700)' }}>{row.lfp}</span>
+                <span style={{ fontFamily:'var(--font-body)', fontSize:13, color:'rgba(150,150,150,0.9)' }}>{row.nmc}</span>
+                <span style={{ fontFamily:'var(--font-body)', fontSize:13, color:'rgba(150,150,150,0.9)' }}>{row.la}</span>
               </motion.div>
             ))}
-          </div>
+          </div>{/* compare-table-inner */}
+          </div>{/* compare-table-wrap */}
           <div style={{ textAlign:'center', marginTop:36 }}>
-            <Link to="/vehicles/lfp-battery" className="btn btn-primary btn-lg">
-              Enquire About LFP Battery →
+            <Link to="/products/lfp-battery-manufacturing" className="btn btn-primary btn-lg">
+              Explore LFP Battery →
             </Link>
           </div>
         </div>
@@ -204,11 +209,11 @@ export default function Technology() {
         <div className="container">
           <div style={{ marginBottom:48 }}>
             <div className="eyebrow">Why Choose VNR</div>
-            <h2 className="section-title">6 Reasons Smart Operators <span className="text-green">Choose VNR Green</span></h2>
+            <h2 className="section-title">VNR Green Kyun? <span className="text-green">Seedha Jawab.</span></h2>
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)',
               marginTop:10, maxWidth:520 }}>
-              These are not marketing claims. These are engineering decisions that directly affect
-              your daily earnings, maintenance costs, and vehicle lifespan.
+              Ye marketing claims nahi hain. Ye woh engineering decisions hain jo seedha aapki
+              daily kamai, maintenance cost aur vehicle ki umar pe asar dalte hain.
             </p>
           </div>
           <div ref={whyRef} style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="why-grid">

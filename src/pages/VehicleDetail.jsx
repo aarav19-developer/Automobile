@@ -8,7 +8,7 @@ import VehicleModal from '../components/VehicleModal';
 export default function VehicleDetail() {
   const { slug } = useParams();
   const v = VEHICLES.find(x => x.slug === slug);
-  if (!v) return <Navigate to="/vehicles" replace />;
+  if (!v) return <Navigate to="/products" replace />;
 
   const [modal, setModal] = useState(false);
   const specsRef = useReveal();
@@ -22,7 +22,7 @@ export default function VehicleDetail() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12.5, color: 'var(--text-muted)' }}>
           <Link to="/" style={{ transition: 'color 0.2s' }} onMouseEnter={e=>e.currentTarget.style.color='var(--g-600)'} onMouseLeave={e=>e.currentTarget.style.color='var(--text-muted)'}>Home</Link>
           <span>/</span>
-          <Link to="/vehicles" style={{ transition: 'color 0.2s' }} onMouseEnter={e=>e.currentTarget.style.color='var(--g-600)'} onMouseLeave={e=>e.currentTarget.style.color='var(--text-muted)'}>Vehicles</Link>
+          <Link to="/products" style={{ transition: 'color 0.2s' }} onMouseEnter={e=>e.currentTarget.style.color='var(--g-600)'} onMouseLeave={e=>e.currentTarget.style.color='var(--text-muted)'}>Products</Link>
           <span>/</span>
           <span style={{ color: 'var(--text-primary)' }}>{v.name}</span>
         </div>
@@ -116,7 +116,7 @@ export default function VehicleDetail() {
             <div style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 24 }}>Related Vehicles</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }} className="rel-grid">
               {related.map(r => (
-                <Link key={r.id} to={`/vehicles/${r.slug}`} className="card" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: 16, textDecoration: 'none' }}>
+                <Link key={r.id} to={`/products/${r.slug}`} className="card" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: 16, textDecoration: 'none' }}>
                   <div style={{ fontSize: 40, flexShrink: 0 }}>{r.icon}</div>
                   <div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 2 }}>{r.name}</div>

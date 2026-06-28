@@ -5,13 +5,18 @@
 
 export const COMPANY = {
   name:'VNR Green Automobiles', shortName:'VNR Green',
-  tagline:'Engineering the Future of Electric Mobility',
+  tagline:'Meerut se. India ke liye. Electric.',
   group:'Dewan Group', founded:'2022', city:'Meerut', state:'Uttar Pradesh',
   address:'Plot D-26, Sector 1, Shatabdi Nagar, Delhi Road, Meerut, UP 250103',
   phone1:'+91 7065 214 954', phone2:'+91 7037 050 522',
   email:'marketing@vnrgreenauto.com', website:'www.vnrgreenauto.com',
   whatsapp:'917065214954', whatsappMsg:'Hi, I want to enquire about VNR Green Automobiles EVs',
-  socials:{ facebook:'#', instagram:'#', youtube:'#', linkedin:'#' },
+  socials:{ 
+    facebook:'https://www.facebook.com/VnrGreenAutomobiles', 
+    instagram:'https://www.instagram.com/vnrgreenautomobiles', 
+    youtube:'https://www.youtube.com/@VNRGreenAutomobiles', 
+    linkedin:'https://www.linkedin.com/company/vnr-green-automobiles' 
+  },
 };
 
 export const HERO_STATS = [
@@ -42,29 +47,29 @@ export const STRENGTHS = [
   {
     icon:'factory',
     title:'In-House Manufacturing',
-    desc:'Full-stack production facility in Meerut with phosphating pre-treatment, liquid paint finishing, and heavy chassis assembly under one roof. Every weld is done in-house — no outsourcing, no quality compromise.',
-    detail:'Our 20,000 sq ft facility houses 5 dedicated production bays, each specialised for a specific manufacturing stage. From raw steel cutting to final road test, every process is controlled and documented.',
+    desc:'Meerut mein apna 20,000 sq ft production facility — phosphating, liquid paint, heavy chassis assembly sab ek hi jagah. Koi outsourcing nahi, koi compromise nahi.',
+    detail:'5 dedicated production bays hain — har ek specific manufacturing stage ke liye. Raw steel cutting se lekar final road test tak har cheez in-house hoti hai, documented hoti hai aur checked hoti hai.',
     stat:'100%', statLabel:'In-House',
   },
   {
     icon:'battery',
-    title:'Smart LFP Battery',
-    desc:'Lithium Iron Phosphate chemistry — safest, most thermally stable lithium type. Paired with Smart BMS, Bluetooth app monitoring, and a blastproof casing designed for Indian climate extremes.',
-    detail:'LFP cells operate safely from -20°C to +60°C, making them ideal for every Indian season. Our Smart BMS automatically balances cells, prevents overcharge, and provides real-time diagnostics via mobile app.',
+    title:'LFP Battery — Blast & Fire Proof',
+    desc:'Lithium Iron Phosphate — India mein sabse safe battery chemistry. Aag nahi lagti, blast nahi hota. Smart BMS, Bluetooth monitoring aur blastproof casing ke saath aata hai.',
+    detail:'LFP cells -20°C se +60°C tak kaam karti hain — har Indian season ke liye ready. Smart BMS cells ko automatic balance karta hai, overcharge rokta hai aur mobile app pe real-time data deta hai.',
     stat:'2500+', statLabel:'Charge Cycles',
   },
   {
     icon:'award',
     title:'Certified Components Only',
-    desc:'CY Gold motors and controllers, CEAT commercial tyres, Trontek Lithium batteries — every single part sourced from verified, branded suppliers. No generic substitutes at any stage.',
-    detail:'We maintain approved vendor lists with mandatory batch testing. Each CY Gold motor is dynamo-tested before installation. CEAT tyres are load-rated for commercial use. Trontek cells are Grade A only.',
+    desc:'CY Gold motors, CEAT commercial tyres, Trontek Grade-A lithium cells — ek bhi generic part nahi. Har ek component verified supplier se aata hai.',
+    detail:'Mandatory batch testing ke saath approved vendor list follow hoti hai. CY Gold motors dynamo-tested hote hain installation se pehle. CEAT tyres commercial load-rated hain. Trontek sirf Grade-A cells.',
     stat:'RTO', statLabel:'All Models',
   },
   {
     icon:'globe',
     title:'Pan-India Dealer Network',
-    desc:'Territory-exclusive dealership rights with product training, marketing support and a complete portfolio ready from Day 1. Our dealer partners grow with us — not just sell for us.',
-    detail:'Each dealer receives: exclusive territory mapping, 3-day product training, full marketing kit, dedicated relationship manager, and priority spare parts supply. Average dealer setup time: 3 weeks.',
+    desc:'Territory-exclusive dealership — product training, marketing support aur Day 1 se ready portfolio. Dealer partners sirf sell nahi karte, VNR Green ke saath grow karte hain.',
+    detail:'Har dealer ko milta hai: exclusive territory, 3-day product training, full marketing kit, dedicated relationship manager aur priority spare parts. Average dealer setup time: 3 weeks.',
     stat:'PAN', statLabel:'India Growth',
   },
 ];
@@ -73,75 +78,75 @@ export const ABOUT_OWNER = [
   {
     name:'Sh. Dewan Sahab',
     role:'Chairman & Founder',
-    desc:'Visionary behind VNR Green Automobiles. With decades of industrial leadership through Dewan Group, he brings unmatched trust and business acumen to India\'s EV revolution.',
+    desc:'Dewan Group ke nींव rakhne wale. 40+ saal ke industrial experience ke saath unhone VNR Green ki shuruaat ki — Meerut se ek electric revolution ki.',
     initials:'DS',
-    experience:'30+ Years',
+    experience:'40+ Years',
   },
   {
     name:'Head of Manufacturing',
     role:'Director — Operations',
-    desc:'Oversees the entire production facility in Meerut. Expert in automotive manufacturing processes, quality management, and lean production systems.',
+    desc:'Meerut factory ke in-charge. Production line, quality control aur delivery — har ek cheez inki nazar mein rehti hai. Vehicle floor se road tak.',
     initials:'MH',
     experience:'15+ Years',
   },
   {
     name:'Chief Technology Officer',
     role:'Battery & Powertrain',
-    desc:'Leads R&D on LFP battery systems and EV powertrain integration. Responsible for all technical certifications and product development roadmap.',
+    desc:'LFP battery systems aur EV powertrain ka asli expert. Sabhi technical certifications aur product roadmap inke haath mein hai.',
     initials:'CT',
     experience:'12+ Years',
   },
   {
     name:'Head of Sales & Dealers',
     role:'Business Development',
-    desc:'Builds and manages the pan-India dealer network. Drives dealership onboarding, sales training, and market expansion strategy across North India.',
+    desc:'Pan-India dealer network build karte hain. Onboarding se lekar training aur market expansion tak — North India mein VNR Green ka chehra.',
     initials:'HS',
     experience:'10+ Years',
   },
 ];
 
 export const MISSION_VISION = {
-  mission:'To manufacture safe, reliable and affordable electric vehicles that transform India\'s commercial transport — built with integrity, backed by legacy, and engineered for the roads that real India drives on.',
-  vision:'To be India\'s most trusted EV manufacturer by 2030 — present in every district, powering every kind of commercial operator, and proving that electric mobility can be both premium and practical.',
-  values_heading:'What Drives Every Decision We Make',
+  mission:'VNR Green ka kaam simple hai — safe, reliable aur affordable electric vehicles banana jo India ke commercial operators ki actual zaroorat puri kare. Backed by Dewan Group. Built in Meerut. Made for real roads.',
+  vision:'2030 tak India ka sabse trusted EV brand — har district mein present, har tarah ke commercial operator ko serve karte hue. Ye sirf ambition nahi, ye roadmap hai.',
+  values_heading:'Har Faisle Ke Peeche Ye Soch Hai',
 };
 
 export const CORE_VALUES = [
   {
     symbol:'◈',
     title:'Precision Engineering',
-    short:'Every weld, every joint, every assembly done to exact specification.',
-    detail:'We follow military-grade assembly documentation. Each vehicle goes through a 12-point checklist before leaving the floor. Our QA team rejects non-conforming parts at source — no exceptions.',
+    short:'Har weld, har joint, har assembly exact specification ke mutabik.',
+    detail:'Military-grade assembly documentation follow hoti hai. Har vehicle floor se nikalne se pehle 12-point checklist se guzarta hai. QA team source pe hi non-conforming parts reject karti hai — koi exception nahi.',
   },
   {
     symbol:'◉',
-    title:'Safety First, Always',
-    short:'LFP chemistry, blastproof casings, Smart BMS — safety is non-negotiable.',
-    detail:'Safety drives every material choice we make. From the steel grade in our chassis to the cell chemistry in our battery, every component is chosen for its safety profile first, cost second.',
+    title:'Safety Pehle, Hamesha',
+    short:'LFP chemistry, blastproof casing, Smart BMS — safety mein koi compromise nahi.',
+    detail:'Har material choice mein safety pehle aati hai. Chassis ke steel grade se lekar battery cell chemistry tak — har component safety profile ke liye choose hota hai, cost ke liye nahi.',
   },
   {
     symbol:'◆',
-    title:'Innovation with Purpose',
-    short:'Bluetooth battery monitoring, custom cargo loaders — built for real needs.',
-    detail:'We do not innovate for innovation\'s sake. Every feature we add solves a real problem faced by real Indian operators. Our Bluetooth BMS app was built after 200+ driver interviews in Meerut and Delhi.',
+    title:'Innovation Real Needs Ke Liye',
+    short:'Bluetooth battery monitoring, custom cargo loaders — real problems ke real solutions.',
+    detail:'Hum innovation ke liye innovation nahi karte. Har feature jo hum add karte hain woh real Indian operators ki real problem solve karta hai. Bluetooth BMS app 200+ driver interviews ke baad bana — Meerut aur Delhi mein.',
   },
   {
     symbol:'▲',
     title:'Long-Term Trust',
-    short:'Dewan Group has operated in Meerut for 40+ years. We build the same way.',
-    detail:'Our warranty and after-sales commitments are backed by Dewan Group\'s financial strength — not a startup\'s promise. When we say 7-year battery life, we have the balance sheet to stand behind it.',
+    short:'Dewan Group 40+ saal se Meerut mein hai. Hum bhi usi tarah banate hain.',
+    detail:'Hamari warranty aur after-sales commitments Dewan Group ki financial strength se backed hain — kisi startup ke waade nahi. Jab hum kehte hain 7-year battery life, toh balance sheet bhi us claim ke peeche khadi hai.',
   },
   {
     symbol:'✦',
-    title:'Customer Success',
-    short:'If our operator does not earn, we have not done our job.',
-    detail:'We measure success by our operators\' daily earnings, not just our sales numbers. Our vehicles are engineered to run 200+ km/day with minimal downtime — because a vehicle off the road is money lost.',
+    title:'Operator Ki Kamai Hi Humaari Safalta',
+    short:'Agar operator nahi kama raha, toh humne apna kaam sahi nahi kiya.',
+    detail:'Hum success measure karte hain operators ki daily earnings se, sirf sales numbers se nahi. Hamare vehicles 200+ km/day ke liye engineer kiye hain — minimum downtime ke saath — kyunki road pe khada vehicle seedha nuksaan hai.',
   },
   {
     symbol:'⬡',
-    title:'Environmental Responsibility',
-    short:'Zero emission operation. Responsible sourcing. Clean manufacturing.',
-    detail:'Each VNR Green vehicle eliminates an average of 2.4 tonnes of CO₂ per year versus its petrol equivalent. Our factory runs on grid + solar hybrid power, and we recycle 96% of manufacturing waste.',
+    title:'Zimmedari Paryavaran Ki',
+    short:'Zero emission operation. Responsible sourcing. Saaf manufacturing.',
+    detail:'Har VNR Green vehicle apne petrol equivalent ke muqable mein average 2.4 tonnes CO₂ per year bachata hai. Factory grid + solar hybrid power pe chalti hai aur 96% manufacturing waste recycle hota hai.',
   },
 ];
 
@@ -174,10 +179,12 @@ export const PROCESS_STEPS = [
 ];
 
 export const CATEGORIES = [
-  { id:'all',          label:'All Vehicles' },
-  { id:'3w-passenger', label:'3-Wheeler Passenger' },
-  { id:'3w-cargo',     label:'3-Wheeler Cargo' },
-  { id:'2-wheeler',    label:'2-Wheeler' },
+  { id:'all',          label:'All Products' },
+  { id:'2-wheeler',    label:'Electric Scooty' },
+  { id:'3w-passenger', label:'Electric Rickshaw' },
+  { id:'3w-cargo',     label:'Electric Loader' },
+  { id:'garbage',      label:'Electric Garbage Loader' },
+  { id:'battery-mfg',  label:'Battery' },
 ];
 
 export const VEHICLES = [
@@ -329,7 +336,7 @@ export const VEHICLES = [
   },
   {
     id:'eloader-garbage', slug:'eloader-garbage',
-    category:'3w-cargo', badge:'Municipal', badgeType:'green',
+    category:'garbage', badge:'Municipal', badgeType:'green',
     name:'Garbage Loader EV', subtitle:'Municipal Grade · Easy Unload',
     tagline:'Clean Cities. Zero Emissions.', accent:'#1A9E50', icon:'♻️',
     colors:[
@@ -435,6 +442,78 @@ export const VEHICLES = [
     features:['12-12 inch tyres','Dual disc brakes','Alloy wheels','Large boot storage','Speed cruiser control','Heavy shockers','Premium styling'],
     specialFeatures:['Dual disc for maximum stopping power','Extra-large boot — fits full helmet','12-12 tyres for stability & grip','Speed cruiser for city cruise control','Alloy wheels — corrosion-resistant','USB charging port built-in'],
     tags:['Dual Disc','12-12 Tyres','Big Boot','Heavy Shockers'],
+    highlight:true,
+  },
+  // ── ELECTRIC AUTO (COMING SOON) ───────────────────────────
+  {
+    id:'electric-auto', slug:'electric-auto',
+    category:'3w-passenger', badge:'Coming Soon', badgeType:'amber',
+    comingSoon: true,
+    name:'Electric Auto', subtitle:'L5 Platform · Fully Enclosed',
+    tagline:'The Future of City Transport.', accent:'#0F6B31', icon:'🚗',
+    colors:[
+      {id:'green', label:'Forest Green', hex:'#148040', filter:'hue-rotate(0deg)'},
+      {id:'black', label:'Matte Black',  hex:'#1F2937', filter:'grayscale(1) brightness(0.35)'},
+      {id:'white', label:'Pearl White',  hex:'#F9FAFB', filter:'grayscale(0.8) brightness(1.6)'},
+    ],
+    description:'A fully enclosed electric auto on the L5 platform — designed for comfortable city commute with weather protection, modern interiors and LFP battery technology. Currently in development. Register your interest to be the first to know.',
+    specs:[
+      {label:'Platform',      value:'L5'},
+      {label:'Body',          value:'Fully Enclosed'},
+      {label:'Battery',       value:'LFP Smart'},
+      {label:'Seating',       value:'4 + 1 Driver'},
+      {label:'Status',        value:'Coming Soon'},
+    ],
+    features:['Fully enclosed cabin','LFP Smart Battery','4+1 seating','Modern interiors','Weather protected','Coming Soon'],
+    specialFeatures:['Register your interest today','LFP blast-proof & fire-proof battery','Weather-sealed fully enclosed cabin','Designed for urban city routes','Modern dashboard & interiors'],
+    tags:['Coming Soon','Fully Enclosed','LFP','L5'],
+    highlight:false,
+  },
+  // ── BATTERY MANUFACTURING ────────────────────────────────
+  {
+    id:'lfp-battery-manufacturing', slug:'lfp-battery-manufacturing',
+    category:'battery-mfg', badge:'Manufactured In-House', badgeType:'green',
+    isBattery: true,
+    name:'LFP Battery Manufacturing', subtitle:'Lithium Iron Phosphate · Blast Proof · Fire Proof',
+    tagline:'India ka Safest EV Battery — Built by VNR Green.', accent:'#0A4A22',
+    description:'VNR Green manufactures Lithium Iron Phosphate (LFP) batteries in-house at our Meerut facility. LFP is the safest lithium chemistry in the world — it does not catch fire, it does not explode. Every battery pack is individually assembled, cycled, balanced and tested before installation.',
+    specs:[
+      {label:'Chemistry',       value:'LFP — Lithium Iron Phosphate'},
+      {label:'Safety',          value:'Blast Proof + Fire Proof'},
+      {label:'Cycle Life',      value:'2500+ charge cycles'},
+      {label:'Battery Life',    value:'7–8 Years'},
+      {label:'Thermal Range',   value:'-20°C to +60°C'},
+      {label:'BMS',             value:'Smart BMS — Auto Cell Balance'},
+      {label:'Monitoring',      value:'Bluetooth App (iOS & Android)'},
+      {label:'Casing',          value:'Blastproof Structural Shell'},
+      {label:'Charge Time',     value:'4–8 Hours'},
+      {label:'Fast Charge',     value:'Compatible'},
+      {label:'Manufacturing',   value:'100% In-House, Meerut'},
+      {label:'Warranty',        value:'1 Year Battery Pack'},
+    ],
+    features:[
+      'Blast Proof casing — certified to contain thermal events',
+      'Fire Proof — LFP chemistry never catches fire',
+      'Smart BMS — auto cell balancing & overcharge protection',
+      'Bluetooth app monitoring — real-time SOC, temp, voltage',
+      '2500+ charge cycles — 7–8 years battery life',
+      'India climate tested: -20°C to +60°C',
+      '100% in-house manufacturing at Meerut',
+      'Grade A Trontek cells only',
+      'Individually cycled, balanced & capacity-verified',
+      'Short-circuit & over-discharge protection',
+    ],
+    specialFeatures:[
+      'Only EV battery that is both Blast Proof AND Fire Proof',
+      '7–8 year battery life — longest in its class',
+      '2500+ cycles vs 300–500 for lead acid',
+      'Smart BMS prevents overcharge, over-discharge & short circuit',
+      'Bluetooth real-time monitoring on mobile app',
+      'Tested in Rajasthan summers & Himalayan winters',
+      'In-house quality control — no outsourcing',
+      'Used across entire VNR Green vehicle lineup',
+    ],
+    tags:['Blast Proof','Fire Proof','LFP','7–8 Yr Life','Smart BMS','In-House Mfg'],
     highlight:true,
   },
 ];

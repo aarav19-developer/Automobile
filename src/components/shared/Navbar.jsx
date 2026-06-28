@@ -7,7 +7,18 @@ import { COMPANY } from '../../data/vehicles';
 const NAV_LINKS = [
   { label: 'Home',       to: '/' },
   { label: 'About',      to: '/about' },
-  { label: 'Vehicles',   to: '/vehicles' },
+  {
+    label: 'Products', to: '/products',
+    dropdown: [
+      { label: 'All Products',            to: '/products',                   icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="7" height="7"/><rect x="15" y="3" width="7" height="7"/><rect x="15" y="15" width="7" height="7"/><rect x="2" y="15" width="7" height="7"/></svg> },
+      { label: 'Electric Scooty',         to: '/products?cat=2-wheeler',     icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 15V9l6-3 3 6h3"/><path d="M12 6V3"/></svg> },
+      { label: 'Electric Rickshaw',       to: '/products?cat=3w-passenger',  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M3 18V8l3-3h10l4 5v8"/><path d="M3 13h18"/></svg> },
+      { label: 'Electric Loader',         to: '/products?cat=3w-cargo',      icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/></svg> },
+      { label: 'Electric Garbage Loader', to: '/products?cat=garbage',       icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg> },
+      { label: 'Battery',                 to: '/products?cat=battery-mfg',   icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M23 13v-2"/><path d="M7 10v4M11 10v4"/></svg> },
+      { label: 'Electric Auto',           to: '/products?cat=3w-passenger',  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v5"/><circle cx="15" cy="17" r="2"/><circle cx="7.5" cy="17" r="2"/><path d="M14 17H9.5"/></svg>, tag: 'Soon' },
+    ],
+  },
   { label: 'Technology', to: '/technology' },
   { label: 'Dealership', to: '/dealership' },
   { label: 'Contact',    to: '/contact' },
@@ -17,9 +28,14 @@ export default function Navbar() {
   const [hidden,     setHidden]     = useState(false);
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdown,   setDropdown]   = useState(null);
+  const dropTimer = useRef(null);
   const location = useLocation();
   const isHome   = location.pathname === '/';
   const lastY    = useRef(0);
+
+  const openDrop  = (label) => { clearTimeout(dropTimer.current); setDropdown(label); };
+  const closeDrop = ()      => { dropTimer.current = setTimeout(() => setDropdown(null), 120); };
 
   useEffect(() => {
     const onScroll = () => {
@@ -83,27 +99,104 @@ export default function Navbar() {
             {/* Desktop nav links */}
             <nav className="nav-desk-links" style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
               {NAV_LINKS.map(l => (
-                <NavLink key={l.to} to={l.to} end={l.to === '/'} style={{ textDecoration: 'none' }}>
-                  {({ isActive }) => (
-                    <span style={{
-                      display: 'inline-block', padding: '6px 13px', borderRadius: 100,
-                      fontFamily: 'var(--font-display)', fontSize: 13.5,
-                      fontWeight: isActive ? 700 : 500,
-                      color: isActive ? '#fff' : 'rgba(255,255,255,0.62)',
-                      background: isActive ? 'rgba(34,192,96,0.18)' : 'transparent',
-                      transition: 'all 0.22s', cursor: 'pointer',
-                    }}
-                      onMouseEnter={e => {
-                        if (!isActive) { e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = 'rgba(34,192,96,0.12)'; }
+                l.dropdown ? (
+                  <div key={l.to} style={{ position: 'relative' }}
+                    onMouseEnter={() => openDrop(l.label)}
+                    onMouseLeave={closeDrop}>
+                    <NavLink to={l.to} end={false} style={{ textDecoration: 'none' }}>
+                      {({ isActive }) => (
+                        <span style={{
+                          display: 'inline-flex', alignItems: 'center', gap: 4,
+                          padding: '6px 13px', borderRadius: 100,
+                          fontFamily: 'var(--font-display)', fontSize: 13.5,
+                          fontWeight: isActive ? 700 : 500,
+                          color: isActive ? '#fff' : 'rgba(255,255,255,0.62)',
+                          background: isActive || dropdown === l.label ? 'rgba(34,192,96,0.18)' : 'transparent',
+                          transition: 'all 0.22s', cursor: 'pointer',
+                        }}>
+                          {l.label}
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                            style={{ opacity: 0.6, transition: 'transform 0.2s', transform: dropdown === l.label ? 'rotate(180deg)' : 'none' }}>
+                            <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                        </span>
+                      )}
+                    </NavLink>
+                    <AnimatePresence>
+                      {dropdown === l.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                          transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
+                          onMouseEnter={() => openDrop(l.label)}
+                          onMouseLeave={closeDrop}
+                          style={{
+                            position: 'absolute', top: 'calc(100% + 10px)', left: '50%',
+                            transform: 'translateX(-50%)',
+                            background: 'rgba(10,10,10,0.97)',
+                            border: '1px solid rgba(34,192,96,0.2)',
+                            borderRadius: 16, padding: '8px 6px',
+                            minWidth: 230, zIndex: 2000,
+                            boxShadow: '0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(34,192,96,0.08)',
+                          }}>
+                          {/* Arrow tip */}
+                          <div style={{
+                            position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%)',
+                            width: 12, height: 12, background: 'rgba(10,10,10,0.97)',
+                            border: '1px solid rgba(34,192,96,0.2)', borderRadius: 2,
+                            rotate: '45deg', borderBottom: 'none', borderRight: 'none',
+                          }} />
+                          {l.dropdown.map((item) => (
+                            <Link key={item.to + item.label} to={item.to}
+                              onClick={() => setDropdown(null)}
+                              style={{
+                                display: 'flex', alignItems: 'center', gap: 10,
+                                padding: '9px 14px', borderRadius: 10,
+                                textDecoration: 'none', transition: 'background 0.18s',
+                                color: 'rgba(255,255,255,0.75)',
+                                fontFamily: 'var(--font-display)', fontSize: 13, fontWeight: 500,
+                              }}
+                              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(34,192,96,0.12)'; e.currentTarget.style.color = '#fff'; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; }}>
+                              <span style={{ fontSize: 16 }}>{item.icon}</span>
+                              <span style={{ flex: 1 }}>{item.label}</span>
+                              {item.tag && (
+                                <span style={{
+                                  fontSize: 9, fontWeight: 800, letterSpacing: '0.1em',
+                                  background: 'linear-gradient(135deg,#D97706,#F59E0B)',
+                                  color: '#fff', padding: '2px 7px', borderRadius: 100,
+                                }}>{item.tag}</span>
+                              )}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <NavLink key={l.to} to={l.to} end={l.to === '/'} style={{ textDecoration: 'none' }}>
+                    {({ isActive }) => (
+                      <span style={{
+                        display: 'inline-block', padding: '6px 13px', borderRadius: 100,
+                        fontFamily: 'var(--font-display)', fontSize: 13.5,
+                        fontWeight: isActive ? 700 : 500,
+                        color: isActive ? '#fff' : 'rgba(255,255,255,0.62)',
+                        background: isActive ? 'rgba(34,192,96,0.18)' : 'transparent',
+                        transition: 'all 0.22s', cursor: 'pointer',
                       }}
-                      onMouseLeave={e => {
-                        if (!isActive) { e.currentTarget.style.color = 'rgba(255,255,255,0.62)'; e.currentTarget.style.background = 'transparent'; }
-                      }}
-                    >
-                      {l.label}
-                    </span>
-                  )}
-                </NavLink>
+                        onMouseEnter={e => {
+                          if (!isActive) { e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = 'rgba(34,192,96,0.12)'; }
+                        }}
+                        onMouseLeave={e => {
+                          if (!isActive) { e.currentTarget.style.color = 'rgba(255,255,255,0.62)'; e.currentTarget.style.background = 'transparent'; }
+                        }}
+                      >
+                        {l.label}
+                      </span>
+                    )}
+                  </NavLink>
+                )
               ))}
             </nav>
 
