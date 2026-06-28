@@ -702,7 +702,6 @@ html {
   .card, .feat-card, .strength-card, .btn {
     transition: none !important;
   }
-}
   /* On touch devices — instant active feedback */
   .btn:active       { opacity: 0.82; transform: scale(0.97); }
   .card:active      { transform: scale(0.98); }
