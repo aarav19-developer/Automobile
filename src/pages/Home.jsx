@@ -5,6 +5,36 @@ import { useReveal, useStaggerReveal, useCounter } from '../hooks/useReveal';
 import { COMPANY, HERO_STATS, STRENGTHS, PROCESS_STEPS, VEHICLES, TRUST_ITEMS, TICKER_ITEMS } from '../data/vehicles';
 import VehicleModal from '../components/VehicleModal';
 
+/* ── SVG icon map — replaces emojis in strength cards ── */
+const STRENGTH_ICONS = {
+  factory: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 20a2 2 0 002 2h16a2 2 0 002-2V8l-7-6-7 6v2l-6 4v6z"/>
+      <path d="M9 22V12h6v10"/>
+    </svg>
+  ),
+  battery: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="1" y="6" width="18" height="12" rx="2"/>
+      <path d="M23 13v-2"/>
+      <path d="M7 10v4M11 10v4"/>
+    </svg>
+  ),
+  award: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+    </svg>
+  ),
+  globe: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+    </svg>
+  ),
+};
+
 const TAGLINE_SUB = 'Where engineering precision meets the zero-emission revolution.';
 
 function EVBoltRing() {
@@ -252,8 +282,9 @@ function Strengths() {
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:18 }}>
                 <div className="s-icon" style={{ width:52, height:52, borderRadius:14,
                   background:'var(--g-50)', border:'1px solid var(--primary-border)',
-                  display:'flex', alignItems:'center', justifyContent:'center', fontSize:22,
-                  transition:'all 0.3s' }}>{s.icon}</div>
+                  display:'flex', alignItems:'center', justifyContent:'center',
+                  color:'var(--g-600)',
+                  transition:'all 0.3s' }}>{STRENGTH_ICONS[s.icon] || s.icon}</div>
                 <div style={{ textAlign:'right' }}>
                   <div style={{ fontFamily:'var(--font-display)', fontSize:24, fontWeight:800,
                     background:'linear-gradient(135deg,var(--g-700),var(--g-400))',

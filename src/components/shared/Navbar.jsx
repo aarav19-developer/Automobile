@@ -37,7 +37,7 @@ export default function Navbar() {
 
   useEffect(() => { setMobileOpen(false); setHidden(false); }, [location]);
 
-  const isTransparent = isHome && !scrolled;
+  const isTransparent = !scrolled;
   const pillBg     = isTransparent ? 'rgba(8,8,8,0.48)' : 'rgba(8,8,8,0.97)';
   const pillBorder = isTransparent ? '1px solid rgba(34,192,96,0.22)' : '1px solid rgba(255,255,255,0.08)';
   const pillShadow = isTransparent
@@ -67,7 +67,7 @@ export default function Navbar() {
         >
           {/* Pill inner */}
           <div style={{
-            height: 56,
+            height: 68,
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             padding: '0 10px 0 16px',
             borderRadius: 100,
