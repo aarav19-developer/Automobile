@@ -38,10 +38,10 @@ export default function Navbar() {
   useEffect(() => { setMobileOpen(false); setHidden(false); }, [location]);
 
   const isTransparent = !scrolled;
-  const pillBg     = isTransparent ? 'rgba(8,8,8,0.48)' : 'rgba(8,8,8,0.97)';
+  const pillBg     = isTransparent ? 'rgba(8,8,8,0.62)' : 'rgba(8,8,8,0.97)';
   const pillBorder = isTransparent ? '1px solid rgba(34,192,96,0.22)' : '1px solid rgba(255,255,255,0.08)';
   const pillShadow = isTransparent
-    ? '0 2px 20px rgba(0,0,0,0.25)'
+    ? '0 2px 20px rgba(0,0,0,0.35)'
     : '0 4px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,192,96,0.06)';
 
   return (
