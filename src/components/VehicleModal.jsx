@@ -75,11 +75,12 @@ export default function VehicleModal({ vehicle, onClose }) {
     { id:'black', label:'Matte Black',  hex:'#1F2937', bg:'#F9FAFB', filter:'grayscale(1) brightness(0.35)' },
     { id:'white', label:'Pearl White',  hex:'#F3F4F6', bg:'#F9FAFB', filter:'grayscale(0.8) brightness(1.6)' },
   ];
-  const [activeColor, setActiveColor] = useState({ ...colors[0], bg:'#F0FDF4' });
+  const firstColor = colors[0];
+  const [activeColor, setActiveColor] = useState({ ...firstColor, bg: firstColor.bg || '#F0FDF4' });
   const [tab, setTab] = useState('overview');
 
   useEffect(() => {
-    const c = colors[0];
+    const c = vehicle?.colors?.[0] || colors[0];
     setActiveColor({ ...c, bg: c.bg || '#F0FDF4' });
     setTab('overview');
     document.body.style.overflow = 'hidden';
@@ -117,11 +118,12 @@ export default function VehicleModal({ vehicle, onClose }) {
 
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:560 }}
           className="modal-inner-grid">
-          {/* LEFT */}
+          {/* LEFT — on mobile this comes SECOND via order */}
           <div style={{ background: activeColor.bg || '#F0FDF4',
             borderRadius:'32px 0 0 32px', padding:'32px 26px',
             display:'flex', flexDirection:'column', gap:16,
-            transition:'background 0.4s' }}>
+            transition:'background 0.4s', order:1 }}
+            className="modal-left-panel">
             {/* Badges */}
             <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
               {vehicle.badge && (
@@ -182,8 +184,8 @@ export default function VehicleModal({ vehicle, onClose }) {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div style={{ padding:'32px 28px 32px', display:'flex', flexDirection:'column', overflowY:'auto' }}>
+          {/* RIGHT — on mobile this comes FIRST via order */}
+          <div style={{ padding:'32px 28px 32px', display:'flex', flexDirection:'column', overflowY:'auto', order:0 }}>
             <h2 style={{ fontFamily:'var(--font-display)', fontSize:'clamp(18px,2.5vw,26px)',
               fontWeight:800, color:'var(--text-primary)', letterSpacing:'-0.03em', marginBottom:3 }}>
               {vehicle.name}
@@ -312,9 +314,15 @@ export default function VehicleModal({ vehicle, onClose }) {
 
       <style>{`
         @media(max-width:700px){
-          .modal-inner-grid{grid-template-columns:1fr !important;}
-          .modal-inner-grid>div:first-child{border-radius:32px 32px 0 0 !important;}
-          .modal-panel{border-radius:24px !important;max-height:95vh;}
+          .modal-backdrop { align-items: flex-start !important; padding: 12px 8px !important; }
+          .modal-panel { border-radius: 20px !important; max-height: 96vh; margin-top: 8px; }
+          .modal-inner-grid { grid-template-columns: 1fr !important; }
+          .modal-inner-grid > div[style*="order: 0"],
+          .modal-inner-grid > div { order: unset; }
+          /* Right panel (details) comes first on mobile */
+          .modal-inner-grid > div:last-child { order: 0 !important; border-radius: 20px 20px 0 0 !important; padding: 20px 18px 16px !important; }
+          /* Left panel (image) comes second on mobile */
+          .modal-left-panel { order: 1 !important; border-radius: 0 0 20px 20px !important; padding: 20px 18px !important; }
         }
       `}</style>
     </motion.div>
