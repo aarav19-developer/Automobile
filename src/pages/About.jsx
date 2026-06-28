@@ -8,7 +8,7 @@ const LEGACY_STATS = [
   { value:'2500', suffix:'+', label:'Battery Charge Cycles' },
   { value:'90',   suffix:'+', label:'km Range per Charge' },
   { value:'7',    suffix:'+', label:'Years Battery Life' },
-  { value:'100',  suffix:'%', label:'RTO Approved Models' },
+  { value:'100',  suffix:'%', label:'In-House Manufacturing' },
 ];
 
 function LStat({ stat }) {
@@ -152,7 +152,7 @@ export default function About() {
 
               {['Founded 2022 under Dewan Group umbrella',
                 'Manufacturing facility in Meerut, UP',
-                'Full RTO approvals across all models',
+                'Blast & Fire Proof LFP Battery — in-house made',
                 'Expanding dealer network across North India',
                 'LFP battery technology — safest in class',
                 'Branded components — CY Gold, CEAT, Trontek'].map(pt => (

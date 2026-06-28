@@ -12,7 +12,7 @@ const floatVariants = {
 };
 
 const TRUST_BADGES = [
-  { icon: <Shield size={14} />, text: 'RTO Approved' },
+  { icon: <Shield size={14} />, text: 'Blast & Fire Proof' },
   { icon: <Award size={14} />, text: 'CY Gold Motor' },
   { icon: <Zap size={14} />, text: 'Smart LFP Battery' },
 ];
@@ -91,7 +91,7 @@ export default function Hero() {
                 fontFamily: 'var(--font-ui)', fontSize: 11.5, fontWeight: 700,
                 letterSpacing: '2px', textTransform: 'uppercase', color: '#F59E0B',
               }}>
-                Backed by Dewan Group Legacy
+                Meerut · India's Safest EV
               </span>
             </motion.div>
 

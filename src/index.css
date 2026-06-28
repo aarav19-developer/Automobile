@@ -335,7 +335,7 @@ textarea.form-input{resize:vertical;min-height:110px}
   backdrop-filter:blur(8px);display:flex;align-items:center;
   justify-content:center;padding:20px}
 .modal-panel{background:var(--white);border-radius:var(--r-2xl);
-  width:100%;max-width:900px;max-height:92vh;overflow-y:auto;
+  width:100%;max-width:900px;max-height:90vh;overflow-y:auto;overflow-x:hidden;
   position:relative;box-shadow:0 40px 100px rgba(0,0,0,0.25);
   border:1px solid var(--border)}
 .modal-close-btn{position:absolute;top:18px;right:18px;z-index:10;

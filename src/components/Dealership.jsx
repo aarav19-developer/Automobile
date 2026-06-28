@@ -109,8 +109,8 @@ export default function Dealership() {
                   lineHeight: 1.72, maxWidth: 500, fontWeight: 300, marginBottom: 36,
                 }}
               >
-                Join India's growing EV revolution with a brand backed by Dewan Group legacy.
-                Get territory rights, product training, marketing support and a ready portfolio from Day 1.
+                Meerut mein bana, India ke liye. VNR Green ek aise brand ke saath dealership ka mauka deta hai jis par operators bharosa karte hain.
+                Territory rights, product training, marketing support aur Day 1 se ready portfolio — sab kuch aapke saath.
               </motion.p>
 
               {/* Perks grid */}

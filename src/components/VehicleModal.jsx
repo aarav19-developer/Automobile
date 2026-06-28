@@ -104,7 +104,7 @@ export default function VehicleModal({ vehicle, onClose }) {
         exit={{ opacity:0, scale:0.88, y:40 }}
         transition={{ type:'spring', stiffness:300, damping:28 }}
         onClick={e => e.stopPropagation()}
-        style={{ maxWidth:960, border:'1px solid rgba(20,128,64,0.15)' }}>
+        style={{ maxWidth:960, border:'1px solid rgba(20,128,64,0.15)', maxHeight:'90vh', overflowY:'auto', overflowX:'hidden' }}>
 
         {/* Top accent bar */}
         <div style={{ position:'absolute', top:0, left:0, right:0, height:3, zIndex:5,
@@ -116,7 +116,7 @@ export default function VehicleModal({ vehicle, onClose }) {
           </svg>
         </button>
 
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:560 }}
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr' }}
           className="modal-inner-grid">
           {/* LEFT — on mobile this comes SECOND via order */}
           <div style={{ background: activeColor.bg || '#F0FDF4',
@@ -185,7 +185,7 @@ export default function VehicleModal({ vehicle, onClose }) {
           </div>
 
           {/* RIGHT — on mobile this comes FIRST via order */}
-          <div style={{ padding:'32px 28px 32px', display:'flex', flexDirection:'column', overflowY:'auto', order:0 }}>
+          <div style={{ padding:'32px 28px 32px', display:'flex', flexDirection:'column', order:0 }}>
             <h2 style={{ fontFamily:'var(--font-display)', fontSize:'clamp(18px,2.5vw,26px)',
               fontWeight:800, color:'var(--text-primary)', letterSpacing:'-0.03em', marginBottom:3 }}>
               {vehicle.name}

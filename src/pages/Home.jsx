@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useReveal, useStaggerReveal, useCounter } from '../hooks/useReveal';
@@ -130,9 +130,31 @@ function Ticker() {
 }
 
 function Hero() {
+  const [mouse, setMouse] = useState({ x: -999, y: -999 });
+  const heroRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const rect = heroRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setMouse({ x: -999, y: -999 });
+  }, []);
+
   return (
-    <section style={{ minHeight:'100vh', position:'relative', display:'flex',
+    <section ref={heroRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}
+      style={{ minHeight:'100vh', position:'relative', display:'flex',
       alignItems:'center', background:'#F4FAF6', overflow:'hidden', paddingTop:'var(--nav-h)' }}>
+      {/* Cursor glow */}
+      <div style={{
+        position:'absolute', pointerEvents:'none', zIndex:0,
+        width:520, height:520, borderRadius:'50%',
+        background:'radial-gradient(circle, rgba(34,192,96,0.13) 0%, rgba(20,128,64,0.06) 35%, transparent 70%)',
+        transform:`translate(${mouse.x - 260}px, ${mouse.y - 260}px)`,
+        transition:'transform 0.08s linear',
+      }} />
       <div className="bg-grid-light" style={{ position:'absolute', inset:0, opacity:0.6 }} />
       <div style={{ position:'absolute', top:'-10%', right:'-5%', width:600, height:600,
         borderRadius:'50%', pointerEvents:'none',
@@ -152,7 +174,7 @@ function Hero() {
                 display:'inline-block', boxShadow:'0 0 8px rgba(20,128,64,0.6)' }} />
               <span style={{ fontFamily:'var(--font-display)', fontSize:11, fontWeight:700,
                 letterSpacing:'0.18em', textTransform:'uppercase', color:'var(--g-700)' }}>
-                Backed by Dewan Group · Meerut, UP
+                Meerut Built. India Bound. Zero Emission.
               </span>
             </div>
           </motion.div>
@@ -186,7 +208,7 @@ function Hero() {
           </motion.div>
           <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.64 }}
             style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
-            {['RTO Approved','CY Gold Motor','Smart LFP','CEAT Tyres','Dewan Group'].map(t => (
+            {['Blast & Fire Proof Battery','CY Gold Motor','Smart LFP','CEAT Tyres','ISI Compliant'].map(t => (
               <span key={t} style={{ display:'inline-flex', alignItems:'center', gap:6,
                 fontFamily:'var(--font-display)', fontSize:11.5, fontWeight:600, color:'var(--text-muted)',
                 background:'rgba(20,128,64,0.05)', border:'1px solid rgba(20,128,64,0.15)',
@@ -336,10 +358,8 @@ function Strengths() {
 
 function FeaturedVehicles() {
   const titleRef = useReveal();
-  const [modal, setModal] = useState(null);
-  /* Show highlighted + a few more for 6 total, always even rows */
-  const highlighted = VEHICLES.filter(v => v.highlight);
-  const rest = VEHICLES.filter(v => !v.highlight).slice(0, 6 - highlighted.length);
+  const highlighted = VEHICLES.filter(v => v.highlight && !v.comingSoon && !v.isBattery);
+  const rest = VEHICLES.filter(v => !v.highlight && !v.comingSoon && !v.isBattery).slice(0, 6 - highlighted.length);
   const featured = [...highlighted, ...rest].slice(0, 6);
 
   return (
@@ -362,13 +382,13 @@ function FeaturedVehicles() {
 
         <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }} className="feat-grid">
           {featured.map((v,idx) => (
-            <motion.div key={v.id}
+            <Link key={v.id} to={`/products/${v.slug}`} style={{ textDecoration:'none' }}>
+            <motion.div
               initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ delay:idx*0.07, duration:0.55, ease:[0.22,1,0.36,1] }}
               className="feat-card"
               style={{ background:'var(--white)', border:'1px solid rgba(20,128,64,0.12)',
                 borderRadius:20, overflow:'hidden', cursor:'pointer', position:'relative' }}
-              onClick={() => setModal(v)}
               whileHover={{ y:-8, boxShadow:'0 24px 60px rgba(20,128,64,0.15)' }}>
               {/* Image area */}
               <div style={{ height:210, position:'relative',
@@ -448,12 +468,10 @@ function FeaturedVehicles() {
                 </div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
       </div>
-      <AnimatePresence>
-        {modal && <VehicleModal vehicle={modal} onClose={() => setModal(null)} />}
-      </AnimatePresence>
       <style>{`
         @media(max-width:1024px){.feat-grid{grid-template-columns:repeat(2,1fr) !important;}}
         @media(max-width:580px){.feat-grid{grid-template-columns:1fr !important;}}
