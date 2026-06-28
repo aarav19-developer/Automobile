@@ -552,9 +552,9 @@ h2 + p, h3 + p, h1 + p { margin-top: 8px; }
   .contact-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
 
   /* Modal full screen */
-  .modal-backdrop { padding: 0 !important; align-items: flex-end !important; }
+  .modal-backdrop { padding: 12px !important; align-items: center !important; }
   .modal-panel {
-    border-radius: 24px 24px 0 0 !important;
+    border-radius: 20px !important;
     max-height: 92vh !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -740,10 +740,10 @@ html {
 
 /* ── MODAL MOBILE ── */
 @media (max-width: 600px) {
-  .modal-backdrop { padding: 0 !important; align-items: flex-end !important; }
+  .modal-backdrop { padding: 12px !important; align-items: center !important; }
   .modal-panel {
-    border-radius: 20px 20px 0 0 !important;
-    max-height: 90vh !important;
+    border-radius: 20px !important;
+    max-height: 92vh !important;
     width: 100% !important;
     max-width: 100% !important;
   }
