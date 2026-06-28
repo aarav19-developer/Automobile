@@ -38,7 +38,7 @@ export default function Navbar() {
   useEffect(() => { setMobileOpen(false); setHidden(false); }, [location]);
 
   const isTransparent = !scrolled;
-  const pillBg     = isTransparent ? 'rgba(8,8,8,0.62)' : 'rgba(8,8,8,0.97)';
+  const pillBg     = isTransparent ? 'rgba(8,8,8,0.52)' : 'rgba(10,10,10,0.97)';
   const pillBorder = isTransparent ? '1px solid rgba(34,192,96,0.22)' : '1px solid rgba(255,255,255,0.08)';
   const pillShadow = isTransparent
     ? '0 2px 20px rgba(0,0,0,0.35)'
@@ -72,8 +72,6 @@ export default function Navbar() {
             padding: '0 10px 0 16px',
             borderRadius: 100,
             background: pillBg,
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
             border: pillBorder,
             boxShadow: pillShadow,
             transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
