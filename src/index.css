@@ -621,6 +621,12 @@ img, video, iframe { max-width: 100%; height: auto; }
 /* ── Prevent horizontal scroll on any device ── */
 html, body { max-width: 100vw; overflow-x: hidden; }
 
+/* content-visibility — off-screen sections skip rendering, massive perf boost */
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
 /* ── Smooth tap highlight removal on mobile ── */
 * { -webkit-tap-highlight-color: transparent; }
 
@@ -633,13 +639,22 @@ html, body { max-width: 100vw; overflow-x: hidden; }
    PERFORMANCE + TOUCH RESPONSIVENESS — All Devices
    ================================================================ */
 
-/* GPU acceleration on animated elements */
-.card, .feat-card, .strength-card, .btn, .modal-panel,
-.float-wa, .scroll-top-btn {
-  will-change: transform;
+/* GPU acceleration — only on elements that actually animate */
+.modal-panel {
+  will-change: transform, opacity;
+}
+
+/* Cards — NO will-change (causes layer thrashing on mobile) */
+.card, .feat-card, .strength-card {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+/* transition: all is expensive — replace with specific properties */
+.card        { transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+.feat-card   { transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+.strength-card { transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+.btn         { transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease, color 0.22s ease; }
 
 /* Remove 300ms tap delay on all touch devices */
 * { touch-action: manipulation; }
@@ -674,16 +689,24 @@ html {
   text-size-adjust: 100%;
 }
 
-/* Faster hover transitions on desktop, instant on touch */
+/* Faster hover transitions on desktop, NONE on touch */
 @media (hover: hover) {
-  .btn, .card, .feat-card { transition-duration: 0.28s; }
+  .btn, .card, .feat-card { transition-duration: 0.22s; }
 }
 @media (hover: none) {
-  /* On touch devices — no hover delays, instant feedback */
+  /* Touch devices — disable hover transforms completely, saves repaint */
+  .card:hover, .feat-card:hover, .strength-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .card, .feat-card, .strength-card, .btn {
+    transition: none !important;
+  }
+}
+  /* On touch devices — instant active feedback */
   .btn:active       { opacity: 0.82; transform: scale(0.97); }
   .card:active      { transform: scale(0.98); }
   .feat-card:active { transform: scale(0.98); }
-  .btn, .card, .feat-card { transition-duration: 0.12s; }
 }
 
 /* ── MOBILE NAVBAR FIX ── */

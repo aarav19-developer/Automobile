@@ -38,26 +38,35 @@ const STRENGTH_ICONS = {
 const TAGLINE_SUB = 'Meerut mein bana. India ke liye. Asli roads ke liye.';
 
 function EVBoltRing() {
+  // Detect touch/mobile — skip heavy animations
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 900;
   return (
     <div style={{ position:'relative', width:'clamp(220px,32vw,300px)', height:'clamp(220px,32vw,300px)', flexShrink:0 }}>
-      <motion.div animate={{ scale:[1,1.07,1], opacity:[0.35,0.65,0.35] }}
-        transition={{ duration:3.5, repeat:Infinity, ease:'easeInOut' }}
-        style={{ position:'absolute', inset:-22, borderRadius:'50%', border:'1.5px solid rgba(20,128,64,0.22)' }} />
-      <motion.div animate={{ rotate:360 }} transition={{ duration:18, repeat:Infinity, ease:'linear' }}
-        style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px dashed rgba(20,128,64,0.15)' }}>
-        <div style={{ position:'absolute', top:-6, left:'50%', transform:'translateX(-50%)',
-          width:12, height:12, borderRadius:'50%', background:'var(--g-500)', boxShadow:'0 0 18px rgba(20,128,64,0.7)' }} />
-      </motion.div>
-      <motion.div animate={{ rotate:-360 }} transition={{ duration:12, repeat:Infinity, ease:'linear' }}
-        style={{ position:'absolute', inset:40, borderRadius:'50%', border:'1px solid rgba(20,128,64,0.1)' }}>
-        <div style={{ position:'absolute', top:-5, left:'50%', transform:'translateX(-50%)',
-          width:9, height:9, borderRadius:'50%', background:'var(--g-300)', boxShadow:'0 0 12px rgba(34,192,96,0.6)' }} />
-      </motion.div>
-      <motion.div animate={{ rotate:360 }} transition={{ duration:28, repeat:Infinity, ease:'linear' }}
-        style={{ position:'absolute', inset:16, borderRadius:'50%', border:'0.5px solid rgba(20,128,64,0.07)' }}>
-        <div style={{ position:'absolute', bottom:-4, left:'50%', transform:'translateX(-50%)',
-          width:7, height:7, borderRadius:'50%', background:'var(--g-400)', boxShadow:'0 0 10px rgba(20,128,64,0.5)' }} />
-      </motion.div>
+      {!isMobile && (
+        <>
+          <motion.div animate={{ scale:[1,1.07,1], opacity:[0.35,0.65,0.35] }}
+            transition={{ duration:3.5, repeat:Infinity, ease:'easeInOut' }}
+            style={{ position:'absolute', inset:-22, borderRadius:'50%', border:'1.5px solid rgba(20,128,64,0.22)' }} />
+          <motion.div animate={{ rotate:360 }} transition={{ duration:18, repeat:Infinity, ease:'linear' }}
+            style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px dashed rgba(20,128,64,0.15)' }}>
+            <div style={{ position:'absolute', top:-6, left:'50%', transform:'translateX(-50%)',
+              width:12, height:12, borderRadius:'50%', background:'var(--g-500)', boxShadow:'0 0 18px rgba(20,128,64,0.7)' }} />
+          </motion.div>
+          <motion.div animate={{ rotate:-360 }} transition={{ duration:12, repeat:Infinity, ease:'linear' }}
+            style={{ position:'absolute', inset:40, borderRadius:'50%', border:'1px solid rgba(20,128,64,0.1)' }}>
+            <div style={{ position:'absolute', top:-5, left:'50%', transform:'translateX(-50%)',
+              width:9, height:9, borderRadius:'50%', background:'var(--g-300)', boxShadow:'0 0 12px rgba(34,192,96,0.6)' }} />
+          </motion.div>
+          <motion.div animate={{ rotate:360 }} transition={{ duration:28, repeat:Infinity, ease:'linear' }}
+            style={{ position:'absolute', inset:16, borderRadius:'50%', border:'0.5px solid rgba(20,128,64,0.07)' }}>
+            <div style={{ position:'absolute', bottom:-4, left:'50%', transform:'translateX(-50%)',
+              width:7, height:7, borderRadius:'50%', background:'var(--g-400)', boxShadow:'0 0 10px rgba(20,128,64,0.5)' }} />
+          </motion.div>
+        </>
+      )}
+      {isMobile && (
+        <div style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px solid rgba(20,128,64,0.18)' }} />
+      )}
       <div style={{ position:'absolute', inset:72, borderRadius:'50%',
         background:'linear-gradient(145deg,#fff,var(--g-50))', border:'2px solid var(--primary-border)',
         boxShadow:'0 0 48px rgba(20,128,64,0.12),inset 0 0 20px rgba(20,128,64,0.05)',

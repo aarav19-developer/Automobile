@@ -30,15 +30,22 @@ export default function Logo({ size = 'md', linkTo = '/', variant = 'dark' }) {
         onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.06)'; }}
         onMouseLeave={e => { e.currentTarget.style.transform = 'none'; }}
       >
-        <img
-          src="/Logo.png"
-          alt="VNR Green Automobiles"
-          style={{
-            width: '100%', height: '100%',
-            objectFit: 'contain',
-            display: 'block',
-          }}
-        />
+        <picture>
+          <source srcSet="/Logo.webp" type="image/webp" />
+          <img
+            src="/Logo.png"
+            alt="VNR Green Automobiles"
+            width={h}
+            height={h}
+            fetchpriority="high"
+            decoding="async"
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+            }}
+          />
+        </picture>
       </div>
 
       {/* ── Wordmark — left aligned so Automobiles sits under VNR Green ── */}
