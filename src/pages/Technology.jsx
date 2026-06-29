@@ -60,8 +60,8 @@ export default function Technology() {
           <h1 className="section-title">LFP Battery — <span className="text-green">Blast Proof. Fire Proof.</span></h1>
           <p style={{ fontFamily:'var(--font-body)', fontSize:15.5, color:'var(--text-muted)',
             maxWidth:520, marginTop:12, lineHeight:1.75 }}>
-            Sirf ek power source nahi — ek complete smart energy system. Bluetooth monitoring,
-            Smart BMS protection, aur India ka sabse safe LFP battery. Aag nahi, blast nahi, compromise nahi.
+            Not just a power source — a complete smart energy system. Bluetooth monitoring,
+            Smart BMS protection, and India's safest LFP chemistry. No fire. No explosion. No compromise.
           </p>
         </div>
       </div>
@@ -71,10 +71,10 @@ export default function Technology() {
         <div className="container">
           <div ref={titleRef} className="reveal" style={{ marginBottom:52 }}>
             <div className="eyebrow">Why LFP</div>
-            <h2 className="section-title">LFP Kyun? <span className="text-green">6 Solid Reasons</span></h2>
+            <h2 className="section-title">Why LFP? <span className="text-green">6 Solid Reasons.</span></h2>
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)', marginTop:12, maxWidth:500 }}>
-              LFP aag nahi pakadti. Blast nahi hoti. Har Indian climate mein kaam karti hai.
-              Isliye VNR Green ke sabhi vehicles mein LFP hai — trend ke liye nahi, safety ke liye.
+              LFP does not catch fire. It does not explode. It performs in every Indian climate.
+              Every VNR Green vehicle runs on LFP — not because it is trendy, because it is the safest choice.
             </p>
           </div>
           <div ref={featRef} style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="tech-feat-grid">
@@ -209,11 +209,11 @@ export default function Technology() {
         <div className="container">
           <div style={{ marginBottom:48 }}>
             <div className="eyebrow">Why Choose VNR</div>
-            <h2 className="section-title">VNR Green Kyun? <span className="text-green">Seedha Jawab.</span></h2>
+            <h2 className="section-title">Why VNR Green? <span className="text-green">A Direct Answer.</span></h2>
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)',
               marginTop:10, maxWidth:520 }}>
-              Ye marketing claims nahi hain. Ye woh engineering decisions hain jo seedha aapki
-              daily kamai, maintenance cost aur vehicle ki umar pe asar dalte hain.
+              These are not marketing claims. These are engineering decisions that directly determine
+              your daily earnings, maintenance costs and how long your vehicle lasts.
             </p>
           </div>
           <div ref={whyRef} style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }} className="why-grid">

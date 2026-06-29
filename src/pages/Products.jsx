@@ -159,7 +159,7 @@ export default function Products() {
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)',
               maxWidth:560, marginTop:12, lineHeight:1.75 }}>
               Electric Scooty, Electric Loader, Electric Rickshaw, Electric Garbage Loader
-              — aur India ki safest in-house manufactured LFP Battery.
+              — and India's safest in-house manufactured LFP Battery.
             </p>
           </div>
         </div>

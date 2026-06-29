@@ -35,7 +35,7 @@ const STRENGTH_ICONS = {
   ),
 };
 
-const TAGLINE_SUB = 'Meerut mein bana. India ke liye. Asli roads ke liye.';
+const TAGLINE_SUB = 'Where Indian roads meet zero-emission performance.';
 
 function EVBoltRing() {
   // Detect touch/mobile — skip heavy animations

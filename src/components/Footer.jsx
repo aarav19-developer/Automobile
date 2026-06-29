@@ -1,29 +1,29 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Zap, ArrowUpRight } from 'lucide-react';
 import { COMPANY } from '../data/vehicles';
 
 const FOOTER_LINKS = {
   Products: [
-    { label: 'E-Rickshaw', href: '#products' },
-    { label: 'EV Loader', href: '#products' },
-    { label: 'Garbage Loader', href: '#products' },
-    { label: 'EV Scooty', href: '#products' },
-    { label: 'LFP Battery', href: '#products' },
-    { label: 'Custom Loaders', href: '#products' },
+    { label: 'Electric Rickshaw',       href: '/products' },
+    { label: 'Electric Loader',         href: '/products' },
+    { label: 'Electric Garbage Loader', href: '/products' },
+    { label: 'Electric Scooty',         href: '/products' },
+    { label: 'LFP Battery',             href: '/products' },
+    { label: 'Custom Loaders',          href: '/products' },
   ],
   Company: [
-    { label: 'About VNR Dewan', href: '#about' },
-    { label: 'Battery Technology', href: '#battery' },
-    { label: 'Why Choose Us', href: '#why' },
-    { label: 'Become a Dealer', href: '#dealer' },
-    { label: 'Get Quote', href: '#quote' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'About Us',         href: '/about' },
+    { label: 'Technology',       href: '/technology' },
+    { label: 'Dealership',       href: '/dealership' },
+    { label: 'Contact',          href: '/contact' },
+    { label: 'Get Quote',        href: '/contact' },
   ],
   Contact: [
-    { label: COMPANY.phone1, href: `tel:${COMPANY.phone1}` },
-    { label: COMPANY.phone2, href: `tel:${COMPANY.phone2}` },
-    { label: COMPANY.email, href: `mailto:${COMPANY.email}` },
-    { label: COMPANY.website, href: `https://${COMPANY.website}`, external: true },
+    { label: COMPANY.phone1,   href: `tel:${COMPANY.phone1}` },
+    { label: COMPANY.phone2,   href: `tel:${COMPANY.phone2}` },
+    { label: COMPANY.email,    href: `mailto:${COMPANY.email}` },
+    { label: COMPANY.website,  href: `https://${COMPANY.website}`, external: true },
   ],
 };
 
@@ -82,8 +82,7 @@ export default function Footer() {
               fontSize: 13.5, color: 'rgba(255,255,255,0.28)',
               lineHeight: 1.78, marginBottom: 24, fontWeight: 300, maxWidth: 260,
             }}>
-              Building safe, smart and reliable electric mobility for India —
-              backed by Dewan Group legacy and genuine manufacturing strength.
+              Safe, reliable and affordable electric vehicles — built in Meerut, trusted across India, backed by Dewan Group's 40-year legacy.
             </p>
 
             {/* Address */}
@@ -139,20 +138,34 @@ export default function Footer() {
               <ul style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
                 {links.map((link) => (
                   <li key={link.label}>
-                    <motion.a
-                      href={link.href}
-                      target={link.external ? '_blank' : undefined}
-                      rel={link.external ? 'noopener noreferrer' : undefined}
-                      whileHover={{ x: 4, color: '#F59E0B' }}
-                      style={{
-                        fontSize: 13.5, color: 'rgba(255,255,255,0.32)',
-                        fontWeight: 300, transition: 'color 0.2s',
-                        display: 'flex', alignItems: 'center', gap: 4,
-                      }}
-                    >
-                      {link.label}
-                      {link.external && <ArrowUpRight size={11} style={{ opacity: 0.4 }} />}
-                    </motion.a>
+                    {link.external ? (
+                      <motion.a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ x: 4, color: '#F59E0B' }}
+                        style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.32)', fontWeight: 300, transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: 4 }}
+                      >
+                        {link.label}
+                        <ArrowUpRight size={11} style={{ opacity: 0.4 }} />
+                      </motion.a>
+                    ) : link.href.startsWith('/') ? (
+                      <Link to={link.href}
+                        style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.32)', fontWeight: 300, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4, transition: 'color 0.2s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#F59E0B'}
+                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.32)'}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <motion.a
+                        href={link.href}
+                        whileHover={{ x: 4, color: '#F59E0B' }}
+                        style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.32)', fontWeight: 300, transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: 4 }}
+                      >
+                        {link.label}
+                      </motion.a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -176,7 +189,7 @@ export default function Footer() {
             </a>.
           </p>
           <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.18)' }}>
-            Made with ⚡ for India's Electric Future
+            Built in Meerut. India Bound. Zero Emission.
           </p>
         </div>
       </div>

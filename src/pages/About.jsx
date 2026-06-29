@@ -53,11 +53,11 @@ export default function About() {
           background:'radial-gradient(circle,rgba(20,128,64,0.08) 0%,transparent 65%)' }} />
         <div className="container" style={{ position:'relative', zIndex:1 }}>
           <div className="eyebrow">About Us</div>
-          <h1 className="section-title" style={{ maxWidth:640 }}>VNR Green — <span className="text-green">Meerut Se. India Ke Liye.</span></h1>
+          <h1 className="section-title" style={{ maxWidth:640 }}>VNR Green — <span className="text-green">Built Tough. Runs Clean.</span></h1>
           <p style={{ fontFamily:'var(--font-body)', fontSize:15.5, color:'var(--text-muted)',
             maxWidth:560, marginTop:12, lineHeight:1.75 }}>
-            VNR Green Automobiles — Dewan Group ki 40+ saal ki industrial legacy ke saath Meerut mein bana ek EV manufacturer.
-            Commercial operators ke liye safe, strong aur profitable vehicles — jo real India ki roads ke liye bane hain.
+            VNR Green Automobiles is a Meerut-based EV manufacturer backed by 40+ years of Dewan Group industrial legacy.
+            We build electric vehicles that commercial operators can trust — engineered for Indian roads, priced for real operators.
           </p>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function About() {
 
               {['Founded 2022 under Dewan Group umbrella',
                 'Manufacturing facility in Meerut, UP',
-                'Blast & Fire Proof LFP Battery — in-house made',
+                'Blast & Fire Proof LFP Battery — manufactured in-house',
                 'Expanding dealer network across North India',
                 'LFP battery technology — safest in class',
                 'Branded components — CY Gold, CEAT, Trontek'].map(pt => (
@@ -239,7 +239,7 @@ export default function About() {
             <h2 className="section-title">The People Behind <span className="text-green">VNR Green</span></h2>
             <p style={{ fontFamily:'var(--font-body)', fontSize:15, color:'var(--text-muted)',
               maxWidth:460, margin:'12px auto 0', lineHeight:1.75 }}>
-              Manufacturing, technology aur business — teeno fields mein decades ka experience. Sab ek kaam ke liye: India mein best EV banana.
+              Manufacturing, technology and business development — decades of combined experience, all focused on building India's most trusted commercial EV brand.
             </p>
           </div>
           <div ref={teamRef} style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:22 }} className="team-grid">

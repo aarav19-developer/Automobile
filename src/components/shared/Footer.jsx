@@ -91,7 +91,7 @@ export default function Footer() {
             <p style={{ fontFamily:'var(--font-body)', fontSize:13.5,
               color:'rgba(255,255,255,0.38)', lineHeight:1.75,
               margin:'18px 0 18px', fontWeight:400, maxWidth:260 }}>
-              Meerut mein bana. India ke commercial operators ke liye. Dewan Group ki legacy ke saath.
+              Built in Meerut. Trusted by commercial operators across India. Backed by Dewan Group's 40-year legacy.
             </p>
             <p style={{ fontFamily:'var(--font-body)', fontSize:12,
               color:'rgba(255,255,255,0.18)', lineHeight:1.65,
@@ -211,7 +211,7 @@ export default function Footer() {
           </p>
           <p style={{ fontFamily:'var(--font-body)', fontSize:12,
             color:'rgba(255,255,255,0.12)' }}>
-            Meerut se. India ke liye. Electric.
+            Built in Meerut. India Bound. Zero Emission.
           </p>
         </div>
       </div>
